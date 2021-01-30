@@ -17,8 +17,22 @@ ANIMATION_SPEED = 0.18
 
 
 
+
 # Load Images Function 
-def loadImages()
+def loadImages():
+    
+    """
+        function is in charge of loading a single img
+        prams: imgFileDir : is the address to the img
+        returns: converted() img
+    """
+    def loadImage(imgFileDir):
+        fileName = os.path.join(os.path.dirname(__file__),
+                                'images', imgFileDir)
+        img = pygame.image.load(fileName)
+        img.convert()
+        return img
+    
 
 
 
