@@ -18,7 +18,10 @@ ANIMATION_SPEED = 0.18
 
 
 
-# Load Images Function 
+"""
+    Load Images Function 
+    returns : a dictioanry of loaded imgs
+"""
 def loadImages():
     
     """
@@ -32,6 +35,18 @@ def loadImages():
         img = pygame.image.load(fileName)
         img.convert()
         return img
+
+
+    return {
+        'background' : loadImage('background.png'),
+        'pipe' : loadImage('pipe.png'),
+        'pipe_end' : loadImage('pipe_end.png'),
+        'pipe_body' : loadImage('pipe_body.png'),
+        'ground' : loadImage('ground.png'),
+        'bird' : loadImage('bird.png'),
+        'bird_wing_up' : loadImage('bird_wing_up.png'),
+        'bird_wing_down' : loadImage('bird_wing_down.png'),
+    }
     
 
 
@@ -46,4 +61,4 @@ def main():
 
     clock = pygame.time.Clock()
     scoreFont = pygame.font.SysFont(None, 32, bold = True)
-    images = loadImages()
+    images = loadImages() #images is a dictionary of all imgs
