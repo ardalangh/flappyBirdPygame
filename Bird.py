@@ -1,3 +1,5 @@
+import math 
+
 """
     The Bird class will be the sprite/user of our game
     this class is supposed represent the bird object in 
@@ -24,4 +26,18 @@ class Bird(pygame.sprite.Sprite):
         self._mask_wingup = pygame.mask.from_surface(self._img_wingup)
         self._mask_wingdown = pygame.mask.from_surface(self._img_wingdown)
 
-    #  Stop here until next week 
+     
+
+    """
+        Update the changed that happened to our bird class component of
+        at every frame. 
+    """
+    def update(self, deltaFrame = 1):
+        if self.secToClimb > 0:
+            fracClimbDone = 1 - (self.secToClimb / Bird.ClimbDuration
+            self.y -= (Bird.ClimbSpeed * framesToSec(deltaFrame) * (1 - math.cos(self.secToClimb * math.pi)))
+            self.secToClimb -= framesToSec(deltaFrame)
+        else:
+            self.y += Bird.SinkSpeed * framesToSec(deltaFrame)
+
+
