@@ -1,4 +1,5 @@
 import math 
+import pygame
 
 """
     The Bird class will be the sprite/user of our game
@@ -34,10 +35,24 @@ class Bird(pygame.sprite.Sprite):
     """
     def update(self, deltaFrame = 1):
         if self.secToClimb > 0:
-            fracClimbDone = 1 - (self.secToClimb / Bird.ClimbDuration
-            self.y -= (Bird.ClimbSpeed * framesToSec(deltaFrame) * (1 - math.cos(self.secToClimb * math.pi)))
+            fracClimbDone = 1 - (self.secToClimb / Bird.ClimbDuration)
+            self.y -= Bird.ClimbSpeed * framesToSec(deltaFrame) * (1 - math.cos(self.secToClimb * math.pi))
             self.secToClimb -= framesToSec(deltaFrame)
         else:
             self.y += Bird.SinkSpeed * framesToSec(deltaFrame)
 
 
+    @property
+    def image(self):
+        if pygame.time.get_ticks() % 500 >= 250:
+            return self._img_wingup
+        else:
+            return sel._img_wingdown
+
+
+    @property
+    def mask(self):
+        if pygame.time.get_ticks() % 500 >= 250:
+            return self._mask_wingup
+        else:
+            return sel._mask_wingdown
