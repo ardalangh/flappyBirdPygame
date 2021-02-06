@@ -1,6 +1,6 @@
 import math 
 import pygame
-
+from pygame.locals import *
 """
     The Bird class will be the sprite/user of our game
     this class is supposed represent the bird object in 
@@ -56,3 +56,7 @@ class Bird(pygame.sprite.Sprite):
             return self._mask_wingup
         else:
             return sel._mask_wingdown
+
+    @property
+    def rect(self):
+        return Rect(self.x, self.y, Bird.Width, Bird.Height)
