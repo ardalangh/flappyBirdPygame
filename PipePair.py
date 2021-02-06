@@ -26,3 +26,37 @@ class PipePair(pygame.sprite.Sprite):
         self.bottomPiece = randint(1, numPipeBody)
 
         self.topPiece = numPipeBody - sel.bottomPiece
+
+
+        # bottom pipe
+        for i in range(1, self.bottomPiece + 1):
+            piecePos = (0, windowHeight - (i * PipePair.Height))
+            self.image.blit(pipeBodyImg, piecePos)
+
+        bottomPipeEndy = windowHeight - self.bottomHeightPx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Resources : https://github.com/TimoWilken/flappy-bird-pygame/blob/master/flappybird.py
