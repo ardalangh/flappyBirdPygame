@@ -59,6 +59,14 @@ class PipePair(pygame.sprite.Sprite):
     def bottomHeightPx(self):
         return self.bottomPiece * PipePair.Height
 
+    @property
+    def visible(self):
+        return -1 * PipePair.Width < self.x < windowWidth
+
+    @property
+    def rect(self):
+        return Rect(self.x, 0, PipePair.Width, PipePair.Height)
+
 
 
 
