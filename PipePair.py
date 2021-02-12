@@ -34,6 +34,34 @@ class PipePair(pygame.sprite.Sprite):
             self.image.blit(pipeBodyImg, piecePos)
 
         bottomPipeEndy = windowHeight - self.bottomHeightPx
+        bottomPipeEndPos = (0, bottomPipeEndy - PipePair.Height)
+        self.image.blit(pipEndImg, bottomPipeEndPos)
+
+
+        # top pipe 
+        for i in range(self.topPiece):
+            self.image.blit(pipeBodyImg, (0, bottomPipeEndy - i * PipePair.Height))
+
+        topPipeEndy = self.topHeightPx
+        self.image.blit(pipEndImg, (0, topPipeEndy))
+
+        self.topPiece += 1
+        self.bottomPiece += 1
+        
+        self.mask = pygame.mask.from_surface(self.image)
+
+
+    @property
+    def topHeightPx(self):
+        return self.topPiece * PipePair.Height
+
+    @property
+    def bottomHeightPx(self):
+        return self.bottomPiece * PipePair.Height
+
+
+
+
 
 
 
