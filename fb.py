@@ -73,4 +73,23 @@ def main():
     scoreFont = pygame.font.SysFont(None, 32, bold = True)
     images = loadImages() #images is a dictionary of all imgs
 
-    bird = Bird(50, int(windowHeight / 2 - Bird.Height / 2), 2, (images['bird_wing_up', images['bird_wing_down']]) )
+    bird = Bird(50, int(windowHeight / 2 - Bird.Height / 2), 2, (images['bird_wing_up', images['bird_wing_down']]))
+
+    pipes = deque()
+
+    frameClock = 0 
+    score = 0 
+    done = pause = False
+
+    while not done:
+        clock.tick(FPS)
+
+
+        if not (pause or frameClock % mSecTOFrames(PipePair.ADD_INTERVAL)):
+            pipe = PipePair(images['pipe_end'],images['pipe_body'])
+            pipes.append(pipe)
+
+        for event in pygame.event.get():
+            if event.type == QUIT or (event.type == KEYUP and event.key = K_ESCAPE):
+                done = True
+                break
