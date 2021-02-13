@@ -1,6 +1,7 @@
 import pygame 
 from pygame.locals import *
 from Bird.py import *
+from fb.py import * 
 import random
 
 windowWidth = 568
@@ -68,6 +69,12 @@ class PipePair(pygame.sprite.Sprite):
         return Rect(self.x, 0, PipePair.Width, PipePair.Height)
 
 
+    def update(self, deltaFrames = 1):
+        self.x -= ANIMATION_SPEED * framesPerSec(deltaFrames)
+    
+    def collidesWith(self, bird):
+        return pygame.sprite.collide_mask(self,bird)
+        
 
 
 
