@@ -5,6 +5,8 @@ import math
 import os
 from random import randint
 from collections import deque
+from Bird.py import * 
+from PipePair.py import * 
 
 
 # Game Setting
@@ -53,6 +55,14 @@ def loadImages():
 
 
 
+
+def framesToMSec(frames, fps = FPS): return 1000.0 * frames / fps
+
+def mSecTOFrames(ms, fps = FPS): return fps * ms / 1000.0
+
+
+
+
 # Main function
 def main():
     pygame.init()
@@ -62,3 +72,5 @@ def main():
     clock = pygame.time.Clock()
     scoreFont = pygame.font.SysFont(None, 32, bold = True)
     images = loadImages() #images is a dictionary of all imgs
+
+    bird = Bird(50, int(windowHeight / 2 - Bird.Height / 2), 2, (images['bird_wing_up', images['bird_wing_down']]) )

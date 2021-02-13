@@ -70,11 +70,11 @@ class PipePair(pygame.sprite.Sprite):
 
 
     def update(self, deltaFrames = 1):
-        self.x -= ANIMATION_SPEED * framesPerSec(deltaFrames)
+        self.x -= ANIMATION_SPEED * framesToMSec(deltaFrames)
     
     def collidesWith(self, bird):
-        return pygame.sprite.collide_mask(self,bird)
-        
+        return pygame.sprite.collide_mask(self.bird)
+
 
 
 
