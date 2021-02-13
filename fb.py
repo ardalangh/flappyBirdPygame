@@ -93,3 +93,7 @@ def main():
             if event.type == QUIT or (event.type == KEYUP and event.key = K_ESCAPE):
                 done = True
                 break
+            elif event.type == KEYUP and event.key in (K_PAUSE, K_p):
+                pause = not pause
+            elif event.type == MOUSEBUTTONUP or (event.type == KEYUP and event.key in (K_UP, K_RETURN, K_SPACE)):
+                bird.secToClimb = Bird.ClimbDuration
