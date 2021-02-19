@@ -112,6 +112,13 @@ def main():
         while pipes and not pipes[0].visible:
             pipes.popleft()
 
+        for p in pipes:
+            p.update()
+            surface.blit(p.image, p.rect)
+
+        bird.update()
+        surafce.blit(bird.image, bird.rect)
+
         
 
         
