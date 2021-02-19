@@ -119,6 +119,15 @@ def main():
         bird.update()
         surafce.blit(bird.image, bird.rect)
 
+
+        for p in pipes:
+            if p.x + PipePair.Width < bird.x and not p.scoreCounted:
+                score += 1 #score = score + 1
+                p.scoreCounted = True
+        
+        scoreSurface = score_font.render(str(score), True, (255,255,255)) 
+
+
         
 
         
