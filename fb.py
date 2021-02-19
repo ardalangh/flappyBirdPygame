@@ -97,3 +97,15 @@ def main():
                 pause = not pause
             elif event.type == MOUSEBUTTONUP or (event.type == KEYUP and event.key in (K_UP, K_RETURN, K_SPACE)):
                 bird.secToClimb = Bird.ClimbDuration
+
+        if pause:
+            continue #does not do anything just keeps going
+            
+        collisions = any(p.collidesWith(bird) p in pipes)
+
+        if collections or 0 >= bird.y or bird.y >= windowHeight - Bird.Height:
+            done = True
+
+        
+
+        
