@@ -106,6 +106,12 @@ def main():
         if collections or 0 >= bird.y or bird.y >= windowHeight - Bird.Height:
             done = True
 
+        for x in (0, windowHeight / 2):
+            surface.blit(images['background'], (x, 0))
+
+        while pipes and not pipes[0].visible:
+            pipes.popleft()
+
         
 
         
