@@ -73,7 +73,7 @@ def main():
     scoreFont = pygame.font.SysFont(None, 32, bold = True)
     images = loadImages() #images is a dictionary of all imgs
 
-    bird = Bird(50, int(windowHeight / 2 - Bird.Height / 2), 2, (images['bird_wing_up', images['bird_wing_down']]))
+    bird = Bird(50, int(windowHeight / 2 - Bird.Height / 2), 2, (images['bird_wing_up'], images['bird_wing_down']))
 
     pipes = deque()
 
