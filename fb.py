@@ -126,6 +126,8 @@ def main():
                 p.scoreCounted = True
         
         scoreSurface = score_font.render(str(score), True, (255,255,255)) 
+        score_x = windowWidth / 2 - scoreSurface.get_width()/ 2 
+        surface.blit(scoreSurface, (score_x, PipePair.Height))
 
 
         
