@@ -5,8 +5,8 @@ import math
 import os
 from random import randint
 from collections import deque
-from Bird.py import * 
-from PipePair.py import * 
+from bird import * 
+from pipePair import *
 
 
 # Game Setting
@@ -90,7 +90,7 @@ def main():
             pipes.append(pipe)
 
         for event in pygame.event.get():
-            if event.type == QUIT or (event.type == KEYUP and event.key = K_ESCAPE):
+            if event.type == QUIT or (event.type == KEYUP and event.key == K_ESCAPE):
                 done = True
                 break
             elif event.type == KEYUP and event.key in (K_PAUSE, K_p):
@@ -101,7 +101,7 @@ def main():
         if pause:
             continue #does not do anything just keeps going
             
-        collisions = any(p.collidesWith(bird) p in pipes)
+        collisions = any(p.collidesWith(bird) for p in pipes)
 
         if collections or 0 >= bird.y or bird.y >= windowHeight - Bird.Height:
             done = True
