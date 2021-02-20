@@ -129,7 +129,15 @@ def main():
         score_x = windowWidth / 2 - scoreSurface.get_width()/ 2 
         surface.blit(scoreSurface, (score_x, PipePair.Height))
 
+        pygame.display.flip()
+        frameClock += 1
+    
+    print(f"Game over! Score: {score}")
+    pygame.quit()
 
+
+if __name__ == '__main__':    
+    main()
         
 
         
