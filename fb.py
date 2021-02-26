@@ -84,7 +84,7 @@ class Bird(pygame.sprite.Sprite):
         if pygame.time.get_ticks() % 500 >= 250:
             return self._img_wingup
         else:
-            return sel._img_wingdown
+            return self._img_wingdown
 
 
     @property
@@ -304,7 +304,7 @@ def main():
             surface.blit(p.image, p.rect)
 
         bird.update()
-        surafce.blit(bird.image, bird.rect)
+        surface.blit(bird.image, bird.rect)
 
 
         for p in pipes:
@@ -312,7 +312,7 @@ def main():
                 score += 1 #score = score + 1
                 p.scoreCounted = True
         
-        scoreSurface = score_font.render(str(score), True, (255,255,255)) 
+        scoreSurface = scoreFont.render(str(score), True, (255,255,255)) 
         score_x = windowWidth / 2 - scoreSurface.get_width()/ 2 
         surface.blit(scoreSurface, (score_x, PipePair.Height))
 
